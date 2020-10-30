@@ -1,0 +1,7 @@
+#!/usr/bin/pyhton3
+""" init file """
+
+import models.engine.file_storage
+
+storage = FileStorage()
+storage.reload()
