@@ -1,7 +1,7 @@
 # AirBnB Clone - The Console
 
 
-#### Functionalities of this command interpreter:
+#### Functionalities of this command interpreter
 
 
 ## Table of Content
