@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ BaseModel that defines all common attributes/methods for other classes """
+
+
 import uuid
 import datetime
 import models
@@ -9,7 +11,6 @@ class BaseModel:
     """
     Base model class, this class returns a representation dict of  an instance
     """
-
     def __init__(self, *args, **kwargs):
         """initialize method"""
         if kwargs:
@@ -29,7 +30,6 @@ class BaseModel:
 
     def __str__(self):
         """print name of class, id instance and dict"""
-
         return "[" + str(self.__class__.__name__) + "]" + " (" + self.id + ")"\
             + " " + str(self.__dict__)
 
@@ -38,7 +38,6 @@ class BaseModel:
         updates the public instance attribute
         updated_at with the current datetime
         """
-
         self.updated_at = datetime.datetime.now()
         models.storage.save()
 
@@ -47,7 +46,6 @@ class BaseModel:
         returns a dictionary containing all
         keys/values of __dict__ of the instance
         """
-
         dictcpy = self.__dict__.copy()
         dictcpy["__class__"] = str(self.__class__.__name__)
         dictcpy["created_at"] = datetime.datetime.isoformat(self.created_at)
