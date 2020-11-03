@@ -215,7 +215,7 @@ class HBNBCommand(cmd.Cmd):
         """ EOF method """
         return True
 
-    def do_emptyline(self, arg):
+    def emptyline(self):
         """ emptyline method """
         pass
 
