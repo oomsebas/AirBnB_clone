@@ -79,7 +79,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif(args[0] not in self.r_dic().keys()):
             print("** class doesn't exist **")
-        elif((len(args) == 1) and (args[0] not in self.r_dic().keys())):
+        elif len(args) == 1:
             print("** instance id missing **")
         else:
             all_dic = storage.all()
@@ -173,11 +173,11 @@ class HBNBCommand(cmd.Cmd):
 
     def do_quit(self, arg):
         """ quit method """
-        exit()
+        return True
 
     def do_EOF(self, arg):
         """ EOF method """
-        exit()
+        return True
 
     def do_emptyline(self, arg):
         """ emptyline method """
