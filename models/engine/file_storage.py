@@ -10,6 +10,7 @@ from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 
+
 class FileStorage:
     """
     This class saves in a file  the representation models in JSON format.
@@ -41,4 +42,5 @@ class FileStorage:
             with open(FileStorage.__file_path, "r") as _file:
                 inst_dict = json.load(_file)
             for key, value in inst_dict.items():
-                FileStorage.__objects[key] = eval(value['__class__']+"(**value)")
+                FileStorage.__objects[key] = \
+                    eval(value['__class__']+"(**value)")
