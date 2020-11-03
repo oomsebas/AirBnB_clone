@@ -18,8 +18,8 @@ class HBNBCommand(cmd.Cmd):
     """commans interpreter class"""
 
     prompt = '(hbnb) '
-    __dirtec = {"BaseModel":BaseModel, "User":User,
-                "State":State, "City":City, "Amenity": Amenity, "Place": Place}
+    __dirtec = {"BaseModel": BaseModel, "User": User, "State": State,
+                "City": City, "Amenity": Amenity, "Place": Place}
 
     def r_dic(self):
         return self.__dirtec
@@ -78,7 +78,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         if len(args) < 1:
             print("** class name missing **")
-        elif args[0] not in self.r_dic().keys() :
+        elif args[0] not in self.r_dic().keys():
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
@@ -185,11 +185,27 @@ class HBNBCommand(cmd.Cmd):
         elif "update" in inp_split[1]:
             try:
                 s = str(inp_split[1])
-                args = s[s.find("(")+1:s.find(")")].replace(",", " ").replace("\"","")
-                return self.do_update(str(inp_split[0]) + " " +args)
+                args = s[s.find("(")+1:s.find(")")].replace(",", " ")\
+                    .replace("\"", "")
+                return self.do_update(str(inp_split[0]) + " " + args)
             except:
-                print("Usage: <class name>.update(\"<id>\", \"<attribute name>\", \"<attribute value>\")")
+                print("Usage: <class name>.update(\"<id>\",\
+                        \"<attribute name>\", \"<attribute value>\")")
 
+    def do_count(self, arg):
+        """
+        Count number of class instances
+        """
+        count = 0
+        args = arg.split()
+        if(args[0] not in self.r_dic().keys()):
+            print("** class doesn't exist **")
+        list1 = []
+        all_dict = storage.all()
+        for key, value in all_dict.items():
+            if args[0] in key:
+                count += 1
+        print(count)
 
     def do_quit(self, arg):
         """ quit method """
