@@ -96,7 +96,9 @@ class HBNBCommand(cmd.Cmd):
         all instances based or not on the class name
 
         Usage:
-            Class_name is optional to print only all instances based on class_name
+            Class_name is optional to print only
+            all instances based on class_name
+
             $ all <class_name>
         """
 
@@ -127,7 +129,8 @@ class HBNBCommand(cmd.Cmd):
         Usage:
             Class_name --> instance class to be updated.
             Id --> unique id of instance to be updated.
-            Attribute name --> atribute to be add or updated on instance dictionary.
+            Attribute name --> atribute to be add or
+            updated on instance dictionary.
             Attribute value --> value of attribute name.
 
             $ update <class name> <id> <attribute name> "<attribute value>"
