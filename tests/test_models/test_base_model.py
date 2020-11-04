@@ -33,9 +33,6 @@ class TestBaseModel(unittest.TestCase):
         methods = inspect.getmembers(BaseModel, predicate=inspect.ismethod)
         for name, func in methods:
             self.assertTrue(len(func.__doc__) > 20)
-        methods = inspect.getmembers(BaseModel, predicate=inspect.isfunction)
-        for name, func in methods:
-            self.assertTrue(len(func.__doc__) > 20)
 
     def test_docstring_for_test(self):
         """
