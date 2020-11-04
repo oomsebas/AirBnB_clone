@@ -59,14 +59,12 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
         elif len(args) < 2:
             print("** instance id missing **")
+        elif args[0] + "." + args[1] not in storage.all().keys():
+            print("** no instance found **")
         else:
             all_dic = storage.all()
-            if all_dic:
-                id_copy = all_dic.get(str(args[0]) + "." + str(args[1]))
-                if id_copy:
-                    print(id_copy)
-                else:
-                    print("** no instance found **")
+            id_copy = all_dic.get(str(args[0]) + "." + str(args[1]))
+            print(id_copy)
 
     def do_destroy(self, arg):
         """
