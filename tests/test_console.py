@@ -135,14 +135,5 @@ class testCommand(unittest.TestCase):
         value = fd.getvalue()
         self.assertEqual(value, "** value missing **\n")
 
-    def test_all_class(self):
-        """all clases test for 10 task"""
-        c_list = ["Place", "BaseModel", "State", "City", "Amenity", "Review"]
-        m_list = ["create", "show", "update", "all", "destroy"]
-        for c_method in m_list:
-            for c_instans in c_list:
-                eval(exec)
-
-
 if __name__ == "__main__":
     unittest.main()
