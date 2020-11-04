@@ -15,7 +15,7 @@ class BaseModel:
         """initialize method"""
         if kwargs:
             for key, value in kwargs.items():
-                if key is "__class__":
+                if "__class__" in key:
                     continue
                 elif key in ("created_at", "updated_at"):
                     exec("self." + key + "= datetime.datetime.\
