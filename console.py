@@ -164,7 +164,7 @@ class HBNBCommand(cmd.Cmd):
                                     pass
                 d1 = {args[2]: x}
                 instance.__dict__.update(d1)
-                storage.save()
+                """storage.save()"""
             else:
                 print("** no instance found **")
 
