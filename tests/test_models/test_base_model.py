@@ -5,9 +5,9 @@ Unitest Class BaseModel
 import unittest
 from models.base_model import BaseModel, __doc__ as mrdoc
 import inspect
-# importpep8
 import models
 from datetime import datetime as datetime
+"""import pep8"""
 
 
 class TestBaseModel(unittest.TestCase):
@@ -54,14 +54,13 @@ class TestBaseModel(unittest.TestCase):
         for name, func in methods:
             self.assertTrue(len(func.__doc__) > 20)
 
-    """def test_pep8(self):
+        """def test_pep8(self):
         \"""
         Tests for PEP-8
         ""\"
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(["models/base_model.py"])
-        self.assertEqual(result.total_errors, 0)
-        """
+        self.assertEqual(result.total_errors, 0)"""
 
     def test_base_init(self):
         """
