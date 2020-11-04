@@ -88,7 +88,7 @@ class HBNBCommand(cmd.Cmd):
             all_dic = storage.all()
             id_copy = all_dic.get(str(args[0]) + "." + str(args[1]))
             if id_copy:
-                all_dic.pop(arg[0] + "." + arg[1])
+                all_dic.pop(args[0] + "." + args[1])
                 storage.save()
             else:
                 print("** no instance found **")
