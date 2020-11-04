@@ -20,7 +20,8 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
     __dirtec = {"BaseModel": BaseModel, "User": User, "State": State,
-                "City": City, "Amenity": Amenity, "Place": Place}
+                "City": City, "Amenity": Amenity, "Place": Place,
+                "Review": Review}
 
     def r_dic(self):
         return self.__dirtec
