@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" init file """
+""" init file to create a unique instance of filestorage """
 
 from models.engine.file_storage import FileStorage
 
