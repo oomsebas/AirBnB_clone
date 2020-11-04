@@ -189,9 +189,9 @@ class HBNBCommand(cmd.Cmd):
                 print("Usage: <class name>.destroy(\"<id>\")")
         elif "update" in inp_split[1]:
             try:
-                   s = str(inp_split[1])
-                   args = s[s.find("(")+1:s.find(")")].replace(",", " ")\
-                   .replace("\"", "")
+                s = str(inp_split[1])
+                args = s[s.find("(")+1:s.find(")")].replace(",", " ")\
+                    .replace("\"", "")
                 return self.do_update(str(inp_split[0]) + " " + args)
             except:
                 print("Usage: <class name>.update(\"<id>\",\
