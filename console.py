@@ -16,7 +16,7 @@ from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
-    """commans interpreter class"""
+    """commands interpreter class"""
 
     prompt = '(hbnb) '
     __dirtec = {"BaseModel": BaseModel, "User": User, "State": State,
@@ -89,6 +89,7 @@ class HBNBCommand(cmd.Cmd):
             id_copy = all_dic.get(str(args[0]) + "." + str(args[1]))
             if(id_copy):
                 del all_dic[str(args[0]) + "." + str(args[1])]
+                storage.save()
             else:
                 print("** no instance found **")
 
@@ -148,7 +149,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             all_dict = storage.all()
             instance = all_dict.get(str(args[0]) + "." + str(args[1]))
-            if instance:
+            if instance and args[2] not in ["id", "created_at", "updated_at"]:
                 try:
                     x = int(args[3].replace('"', ''))
                 except:
@@ -159,9 +160,9 @@ class HBNBCommand(cmd.Cmd):
                             x = str(args[3].replace('"', ''))
                         except:
                                     pass
-                args[3] = args[3].replace('"', '')
                 d1 = {args[2]: x}
                 instance.__dict__.update(d1)
+                storage.save()
             else:
                 print("** no instance found **")
 
@@ -202,12 +203,13 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         if(args[0] not in self.r_dic().keys()):
             print("** class doesn't exist **")
-        list1 = []
-        all_dict = storage.all()
-        for key, value in all_dict.items():
-            if args[0] in key:
-                count += 1
-        print(count)
+        else:
+            list1 = []
+            all_dict = storage.all()
+            for key, value in all_dict.items():
+                if args[0] in key:
+                    count += 1
+            print(count)
 
     def do_quit(self, arg):
         """ quit method """
