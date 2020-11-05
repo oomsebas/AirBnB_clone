@@ -46,6 +46,20 @@ class testCommand(unittest.TestCase):
         value = fd.getvalue()
         self.assertEqual(value, "** class doesn't exist **\n")
 
+        with patch('sys.stdout', new=StringIO()) as fd:
+            HBNBCommand().onecmd("create BaseModel faldkfaldk adkljsd")
+            value = fd.getvalue()
+            self.assertEqual(len(value), 37)
+
+        with patch('sys.stdout', new=StringIO()) as fd:
+            HBNBCommand().onecmd("create BaseModel")
+        value = fd.getvalue()
+        self.assertEqual(len(value), 37)
+        with patch('sys.stdout', new=StringIO()) as fd:
+            HBNBCommand().onecmd("show BaseModel " + value)
+        dict_Base = fd.getvalue()
+        self.assertTrue("[BaseModel]" in dict_Base)
+
     def test_show(self):
         """Test show command."""
         n_bm = BaseModel()
