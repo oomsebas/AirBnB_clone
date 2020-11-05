@@ -64,8 +64,8 @@ EOF  all  create  destroy  help  quit  show  update  count
 No known bugs at this time.
 
 ## Authors
-Sebastian Orozco - [Github] https://github.com/oomsebas
-Juan Torres - [Github] https://github.com/juanjts
+*Sebastian Orozco - [Github] https://github.com/oomsebas
+*Juan Torres - [Github] https://github.com/juanjts
 
 
 ## License
